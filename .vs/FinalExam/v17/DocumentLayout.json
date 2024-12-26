@@ -1,0 +1,137 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\STUDIES\\Semester 7\\.Net\\Exercises\\FinalExam\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{01AD66D5-67AF-437D-8C88-3E480AA6248D}|FinalExam\\FinalExam.csproj|d:\\studies\\semester 7\\.net\\exercises\\finalexam\\finalexam\\pages\\booktickets.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01AD66D5-67AF-437D-8C88-3E480AA6248D}|FinalExam\\FinalExam.csproj|solutionrelative:finalexam\\pages\\booktickets.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01AD66D5-67AF-437D-8C88-3E480AA6248D}|FinalExam\\FinalExam.csproj|d:\\studies\\semester 7\\.net\\exercises\\finalexam\\finalexam\\pages\\booktickets.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{01AD66D5-67AF-437D-8C88-3E480AA6248D}|FinalExam\\FinalExam.csproj|solutionrelative:finalexam\\pages\\booktickets.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01AD66D5-67AF-437D-8C88-3E480AA6248D}|FinalExam\\FinalExam.csproj|d:\\studies\\semester 7\\.net\\exercises\\finalexam\\finalexam\\pages\\viewticket.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{01AD66D5-67AF-437D-8C88-3E480AA6248D}|FinalExam\\FinalExam.csproj|solutionrelative:finalexam\\pages\\viewticket.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01AD66D5-67AF-437D-8C88-3E480AA6248D}|FinalExam\\FinalExam.csproj|d:\\studies\\semester 7\\.net\\exercises\\finalexam\\finalexam\\pages\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{01AD66D5-67AF-437D-8C88-3E480AA6248D}|FinalExam\\FinalExam.csproj|solutionrelative:finalexam\\pages\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01AD66D5-67AF-437D-8C88-3E480AA6248D}|FinalExam\\FinalExam.csproj|d:\\studies\\semester 7\\.net\\exercises\\finalexam\\finalexam\\pages\\viewticket.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01AD66D5-67AF-437D-8C88-3E480AA6248D}|FinalExam\\FinalExam.csproj|solutionrelative:finalexam\\pages\\viewticket.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01AD66D5-67AF-437D-8C88-3E480AA6248D}|FinalExam\\FinalExam.csproj|d:\\studies\\semester 7\\.net\\exercises\\finalexam\\finalexam\\pages\\managedrivers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{01AD66D5-67AF-437D-8C88-3E480AA6248D}|FinalExam\\FinalExam.csproj|solutionrelative:finalexam\\pages\\managedrivers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01AD66D5-67AF-437D-8C88-3E480AA6248D}|FinalExam\\FinalExam.csproj|d:\\studies\\semester 7\\.net\\exercises\\finalexam\\finalexam\\pages\\driverschedules.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{01AD66D5-67AF-437D-8C88-3E480AA6248D}|FinalExam\\FinalExam.csproj|solutionrelative:finalexam\\pages\\driverschedules.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BookTickets.cshtml.cs",
+              "DocumentMoniker": "D:\\STUDIES\\Semester 7\\.Net\\Exercises\\FinalExam\\FinalExam\\Pages\\BookTickets.cshtml.cs",
+              "RelativeDocumentMoniker": "FinalExam\\Pages\\BookTickets.cshtml.cs",
+              "ToolTip": "D:\\STUDIES\\Semester 7\\.Net\\Exercises\\FinalExam\\FinalExam\\Pages\\BookTickets.cshtml.cs",
+              "RelativeToolTip": "FinalExam\\Pages\\BookTickets.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T12:38:43.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BookTickets.cshtml",
+              "DocumentMoniker": "D:\\STUDIES\\Semester 7\\.Net\\Exercises\\FinalExam\\FinalExam\\Pages\\BookTickets.cshtml",
+              "RelativeDocumentMoniker": "FinalExam\\Pages\\BookTickets.cshtml",
+              "ToolTip": "D:\\STUDIES\\Semester 7\\.Net\\Exercises\\FinalExam\\FinalExam\\Pages\\BookTickets.cshtml",
+              "RelativeToolTip": "FinalExam\\Pages\\BookTickets.cshtml",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAkwHoAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-17T12:37:37.653Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Signup.cshtml",
+              "DocumentMoniker": "D:\\STUDIES\\Semester 7\\.Net\\Exercises\\FinalExam\\FinalExam\\Pages\\Signup.cshtml",
+              "RelativeDocumentMoniker": "FinalExam\\Pages\\Signup.cshtml",
+              "ToolTip": "D:\\STUDIES\\Semester 7\\.Net\\Exercises\\FinalExam\\FinalExam\\Pages\\Signup.cshtml",
+              "RelativeToolTip": "FinalExam\\Pages\\Signup.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-17T12:36:20.245Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ViewTicket.cshtml.cs",
+              "DocumentMoniker": "D:\\STUDIES\\Semester 7\\.Net\\Exercises\\FinalExam\\FinalExam\\Pages\\ViewTicket.cshtml.cs",
+              "RelativeDocumentMoniker": "FinalExam\\Pages\\ViewTicket.cshtml.cs",
+              "ToolTip": "D:\\STUDIES\\Semester 7\\.Net\\Exercises\\FinalExam\\FinalExam\\Pages\\ViewTicket.cshtml.cs",
+              "RelativeToolTip": "FinalExam\\Pages\\ViewTicket.cshtml.cs",
+              "ViewState": "AgIAAJUAAAAAAAAAAAAowLsAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T12:20:52.3Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ViewTicket.cshtml",
+              "DocumentMoniker": "D:\\STUDIES\\Semester 7\\.Net\\Exercises\\FinalExam\\FinalExam\\Pages\\ViewTicket.cshtml",
+              "RelativeDocumentMoniker": "FinalExam\\Pages\\ViewTicket.cshtml",
+              "ToolTip": "D:\\STUDIES\\Semester 7\\.Net\\Exercises\\FinalExam\\FinalExam\\Pages\\ViewTicket.cshtml",
+              "RelativeToolTip": "FinalExam\\Pages\\ViewTicket.cshtml",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAFEAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-17T12:20:27.112Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DriverSchedules.cshtml",
+              "DocumentMoniker": "D:\\STUDIES\\Semester 7\\.Net\\Exercises\\FinalExam\\FinalExam\\Pages\\DriverSchedules.cshtml",
+              "RelativeDocumentMoniker": "FinalExam\\Pages\\DriverSchedules.cshtml",
+              "ToolTip": "D:\\STUDIES\\Semester 7\\.Net\\Exercises\\FinalExam\\FinalExam\\Pages\\DriverSchedules.cshtml",
+              "RelativeToolTip": "FinalExam\\Pages\\DriverSchedules.cshtml",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAIwGIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-17T12:16:08.805Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ManageDrivers.cshtml",
+              "DocumentMoniker": "D:\\STUDIES\\Semester 7\\.Net\\Exercises\\FinalExam\\FinalExam\\Pages\\ManageDrivers.cshtml",
+              "RelativeDocumentMoniker": "FinalExam\\Pages\\ManageDrivers.cshtml",
+              "ToolTip": "D:\\STUDIES\\Semester 7\\.Net\\Exercises\\FinalExam\\FinalExam\\Pages\\ManageDrivers.cshtml",
+              "RelativeToolTip": "FinalExam\\Pages\\ManageDrivers.cshtml",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAEgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-17T12:15:52.628Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

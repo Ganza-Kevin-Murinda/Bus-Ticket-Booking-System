@@ -1,0 +1,47 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["BodyClass"] = "index-page";
+}
+
+
+@section Styles {
+            <style>
+                /* Add unique styles for the Index page */
+                body.index-page {
+                    background: url("/images/bg7.jpg") no-repeat center center fixed;
+                    background-size: cover;
+                    color: white;
+                }
+
+                .index-content {
+                    text-align: center;
+                    margin-top: 10%;
+                    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+                    padding: 30px;
+                    border-radius: 10px;
+                    max-width: 600px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .index-content h1 {
+                    font-size: 3rem;
+                    font-weight: bold;
+                }
+
+                .index-content p {
+                    font-size: 1.2rem;
+                    margin-top: 15px;
+                }
+            </style>
+}
+
+<div class="index-content">
+    <h1>Welcome to Bus Management System</h1>
+    <p>
+        Making city travel easier and more reliable. Plan routes, keep schedules on track, and enjoy a smoother journey every day. 
+    </p>
+    <a class="btn btn-outline-warning mt-3" asp-page="/Signup">Get Started>></a>
+</div>
+

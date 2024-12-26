@@ -1,0 +1,71 @@
+﻿@page
+@model FinalExam.Pages.RouteDetailsModel
+@{
+    ViewData["Title"] = "Route Details";
+    Layout = "~/Pages/Shared/_UserLayout.cshtml";
+}
+
+<div class="d-flex">
+    <!-- Sidebar -->
+    <nav class="sidebar bg-white vh-100 d-flex flex-column p-3">
+        <ul class="nav flex-column">
+            <li class="nav-item mb-3">
+                <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/DriverDashboard" ? "active" : "")" href="/DriverDashboard">
+                    <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                </a>
+            </li>
+            <li class="nav-item mb-3">
+                <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/DriverSchedules" ? "active" : "")" href="/DriverSchedules">
+                    <i class="fas fa-calendar-alt me-2"></i> My Schedules
+                </a>
+            </li>
+            <li class="nav-item mb-3">
+                <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/RouteDetails" ? "active" : "")" href="/RouteDetails">
+                    <i class="fas fa-map-marker-alt me-2"></i> Route Details
+                </a>
+            </li>
+             <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/Notifications" ? "active" : "")" href="/Notifications">
+                        <i class="fas fa-bell me-2"></i> Notifications
+                    </a>
+                </li>
+        </ul>
+        <div class="mt-auto">
+            <a class="nav-link text-danger" href="/Logout">
+                <i class="fas fa-sign-out-alt me-2"></i> Logout
+            </a>
+        </div>
+    </nav>
+
+    <div class="main-content d-flex justify-content-center align-items-center flex-grow-1 vh-100" style="padding-left: 20px;">
+    <div class="card shadow-sm" style="width: 30rem; max-height: 80vh; overflow-y: auto;">
+        <div class="card-body">
+            <h4 class="card-title text-center text-primary">Route Details</h4>
+
+                @if (Model.Route != null)
+                {
+                    <ul class="list-unstyled mb-4">
+                        <li><strong>Bus Plate Number:</strong> @Model.Bus.PlateNo</li><br />
+                        <li><strong>Bus Model:</strong> @Model.Bus.Model</li><br />
+                        <li><strong>Departure Time:</strong> @Model.Bus.BusDeparture.ToString("yyyy-MM-dd HH:mm")</li><br />
+                        <li><strong>Arrival Time:</strong> @Model.Bus.BusArrival.ToString("yyyy-MM-dd HH:mm")</li><br />
+                        <li><strong>Route From:</strong> @Model.Route.FromDeparture</li><br />
+                        <li><strong>Route To:</strong> @Model.Route.ToDestination</li><br />
+                        <li><strong>Stops:</strong></li>
+                        <ul>
+                            @foreach (var stop in Model.Stops)
+                            {
+                                    <li>@stop.StopName</li>
+                            }
+                        </ul>
+                    </ul>
+                }
+                else
+                {
+                    <p class="text-danger text-center">@Model.Message</p>
+                }
+        </div>
+    </div>
+</div>
+</div>
+

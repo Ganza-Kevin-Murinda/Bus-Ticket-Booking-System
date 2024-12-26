@@ -1,0 +1,150 @@
+﻿@page
+@model FinalExam.Pages.BookTicketsModel
+@{
+    ViewData["Title"] = "Client Dashboard";
+    Layout = "~/Pages/Shared/_UserLayout.cshtml";
+}
+
+<div class="d-flex">
+    <!-- Sidebar -->
+    <nav class="sidebar bg-white vh-100 d-flex flex-column p-3">
+        <button class="btn btn-outline-primary mb-3 d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-expanded="false" aria-controls="sidebarMenu">
+            Menu
+        </button>
+        <div class="collapse d-md-block" id="sidebarMenu">
+            <ul class="nav flex-column">
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/ClientDashboard" ? "active" : "")" href="/ClientDashboard">
+                        <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/BookTickets" ? "active" : "")" href="/BookTickets">
+                        <i class="fas fa-ticket-alt me-2"></i> Book Tickets
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/ViewTicket" ? "active" : "")" href="/ViewTicket">
+                        <i class="fas fa-calendar-alt me-2"></i> View Ticket
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/Routes" ? "active" : "")" href="/Routes">
+                        <i class="fas fa-map-marker-alt me-2"></i> Routes
+                    </a>
+                </li>
+            </ul>
+
+            <div class="mt-auto">
+                <a class="nav-link text-danger" href="/Logout">
+                    <i class="fas fa-sign-out-alt me-2"></i> Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Book Your Bus Ticket</h1>
+         <!-- Error Message -->
+        <div id="messageLabel" class="text-@Model.MessageColor text-center fs-6">@Model.Message</div>
+
+        <div class="card mx-auto" style="max-width: 650px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            <div class="card-body">
+                <form method="post" asp-page-handler="Book">
+
+                    <!-- Full Name and Contact -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" name="fullName" value="@Model.Username" placeholder="Enter your full name" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="contact" class="form-label">Contact Number</label>
+                            <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter your contact number" required>
+                        </div>
+                    </div>
+
+                    <!-- Travel Date and Bus Name -->
+                     <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="Email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="busName" class="form-label">Bus Name</label>
+                            <select name="Ticket.BusId" class="form-control" id="busName" readonly>
+                                @foreach (var bus in Model.busList)
+                                {
+                                     <option value="@bus.PlateNo">@bus.PlateNo-@bus.Model</option>
+                                }
+                        </select>
+                        </div>
+                    </div>
+
+                    <!-- Departure and Destination -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="departure" class="form-label">Departure Location</label>
+                            <select name="Ticket.RouteDeparture" class="form-control" id="departure" required>
+                                    @foreach (var route in Model.routeList)
+                                    {
+                                           <option value="@route.FromDeparture">@route.FromDeparture</option>
+                                    }
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="destination" class="form-label">Destination Location</label>
+                             <select name="Ticket.RouteDestination" class="form-control" id="destination" required>
+                                @foreach (var route in Model.routeList)
+                                {
+                                         <option value="@route.ToDestination">@route.ToDestination</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="departureDate" class="form-label">Departure Date</label>
+                            <select name="Ticket.DepartureDate" class="form-control" id="departureDate" readonly>
+                                @foreach (var bus in Model.busList)
+                                {
+                                            <option value="@bus.BusDeparture">@bus.BusDeparture</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="arrivalDate" class="form-label">Arrival Date</label>
+                            <select name="Ticket.ArrivalDate" class="form-control" id="arrivalDate" readonly>
+                                @foreach (var bus in Model.busList)
+                                {
+                                               <option value="@bus.BusArrival">@bus.BusArrival</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Price and Payment Method -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="price" class="form-label">Ticket Price</label>
+                            <input type="number" class="form-control" id="price" name="Ticket.Price" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="paymentMethod" class="form-label">Payment Method</label>
+                            <select name="Ticket.PaymentMethod" class="form-control" id="payment" required>
+                                <option>MobileMoney</option>
+                                <option>CreditCard</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary w-100">Book Ticket</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,107 @@
+﻿@page
+@model FinalExam.Pages.DriverSchedulesModel
+@{
+    ViewData["Title"] = "Driver Dashboard";
+    Layout = "~/Pages/Shared/_UserLayout.cshtml";
+}
+
+<div class="d-flex">
+    <!-- Sidebar -->
+    <nav class="sidebar bg-white vh-100 d-flex flex-column p-3">
+        <button class="btn btn-outline-primary mb-3 d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-expanded="false" aria-controls="sidebarMenu">
+            Menu
+        </button>
+        <div class="collapse d-md-block" id="sidebarMenu">
+            <ul class="nav flex-column">
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/DriverDashboard" ? "active" : "")" href="/DriverDashboard">
+                        <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/DriverSchedules" ? "active" : "")" href="/DriverSchedules">
+                        <i class="fas fa-calendar-alt me-2"></i> My Schedules
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/RouteDetails" ? "active" : "")" href="/RouteDetails">
+                        <i class="fas fa-map-marker-alt me-2"></i> Route Details
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/Notifications" ? "active" : "")" href="/Notifications">
+                        <i class="fas fa-bell me-2"></i> Notifications
+                    </a>
+                </li>
+            </ul>
+
+            <div class="mt-auto">
+                <a class="nav-link text-danger" href="/Logout">
+                    <i class="fas fa-sign-out-alt me-2"></i> Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content flex-grow-1 p-4">
+        <h1 class="mb-4">View Schedule</h1>
+
+        <!-- Trigger for print Route -->
+        <button class="btn btn-success" type="button" onclick="window.print()"><i class="fa-solid fa-file fa-lg"></i> Export</button>
+
+        <!-- Error Message -->
+        <div id="messageLabel" class="text-@Model.MessageColor text-center fs-6">@Model.Message</div>
+
+        <table class="table text-center mt-4">
+            <thead>
+                <tr>
+                    <th>Plate Number</th>
+                    <th>Model Name</th>
+                    <th>Seats Number</th>
+                    <th>Bus Departure</th>
+                    <th>Bus Arrival</th>
+                    <th>Departure</th>
+                    <th>Destination</th>
+                </tr>
+            </thead>
+            <tbody>
+                        @foreach (var bus in Model.Busses)
+                        {
+                        <tr>
+                            <td>@bus.PlateNo</td>
+                            <td>@bus.Model</td>
+                            <td>@bus.SeatNo</td>
+                            <td>@bus.BusDeparture.ToString("yyyy-MM-dd HH:mm")</td>
+                            <td>@bus.BusArrival.ToString("yyyy-MM-dd HH:mm")</td>
+                            <td>@bus.Route.FromDeparture</td>
+                            <td>@bus.Route.ToDestination</td>
+                        </tr>
+                        }
+            </tbody>
+        </table>
+    </div>
+</div>
+<style>
+    @@media print {
+        body {
+            visibility: hidden;
+        }
+        .table {
+            visibility: visible;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 80%;
+        }
+        
+        .card .btn {
+            display: none;
+        }
+        .sidebar {
+            display: none;
+        }
+    }
+</style>

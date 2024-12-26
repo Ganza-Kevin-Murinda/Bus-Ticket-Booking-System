@@ -1,0 +1,145 @@
+﻿@page
+@model FinalExam.Pages.ManageClientsModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+
+<div class="d-flex">
+    <!-- Sidebar -->
+    <nav class="sidebar bg-white vh-100 d-flex flex-column p-3">
+        <button class="btn btn-outline-warning text-secondary mb-3 d-md-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-expanded="false" aria-controls="sidebarMenu">
+            Admin
+        </button>
+        <div class="collapse d-md-block" id="sidebarMenu">
+            <ul class="nav flex-column">
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/AdminDashboard" ? "active" : "")"
+                        href="/AdminDashboard">
+                        <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/ManageBusses" ? "active" : "")"
+                        href="/ManageBusses">
+                        <i class="fa-solid fa-bus me-2"></i>Manage Busses
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/ManageClients" ? "active" : "")"
+                        href="/ManageClients">
+                        <i class="fas fa-users me-2"></i> Manage Clients
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/ManageDrivers" ? "active" : "")"
+                        href="/ManageDrivers">
+                        <i class="fa-solid fa-id-card me-2"></i> Manage Drivers
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/ManageRoutes" ? "active" : "")"
+                        href="/ManageRoutes">
+                        <i class="fa-solid fa-route me-2"></i> Manage Routes
+                    </a>
+                </li>
+                @* <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/ManageReports" ? "active" : "")" href="/ManageReports">
+                        <i class="fa-solid fa-file me-2"></i> Manage Reports
+                    </a>
+                </li> *@
+            </ul>
+            <div class="mt-auto">
+                <a class="nav-link text-danger" href="/Logout">
+                    <i class="fas fa-sign-out-alt me-2"></i> Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content flex-grow-1 p-4">
+        <h1 class="mb-4">Manage Clients</h1>
+
+         <!-- Trigger for print Route -->
+        <button class="btn btn-success" type="button" onclick="window.print()"><i class="fa-solid fa-file fa-lg"></i> Export</button>
+
+
+        <!-- Error Message -->
+        <div id="messageLabel" class="text-@Model.MessageColor text-center fs-6">@Model.Message</div>
+
+        <table class="table text-center mt-4">
+            <thead>
+                <tr>
+                    <th>Client ID</th>
+                    <th>Full Name</th>
+                    <th>Phone Number</th>
+                    <th colspan=2>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var client in Model.Clients)
+                {
+                        <tr>
+                           <td>@client.ClientId</td>
+                           <td>@client.FullName</td>
+                           <td>@client.ClientPhone</td>
+                            <td>
+
+                            </td>
+
+                            <td>
+                                <!-- Delete Button -->
+                                <form method="post" asp-page-handler="Delete" onsubmit="return confirmDelete();" style="display:inline;">
+                                    <input type="hidden" name="userId" value="@client.UserId" />
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                        <i class="fa-solid fa-trash fa-lg"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    @@media print {
+        body {
+            visibility: hidden;
+        }
+        .table {
+            visibility: visible;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 80%;
+        }
+        .table th:last-child, 
+        .table td:last-child {
+            display: none; /* Optionally hide the entire last column for Actions */
+        }
+        .card .btn {
+            display: none;
+        }
+        .sidebar {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this Driver?");
+    }
+
+    // Expose functions to the global window object
+    window.confirmDelete = confirmDelete;
+});
+
+</script>

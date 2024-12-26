@@ -1,0 +1,125 @@
+﻿@page
+@model FinalExam.Pages.DriverDashboardModel
+@{
+    ViewData["Title"] = "Driver Dashboard";
+    Layout = "~/Pages/Shared/_UserLayout.cshtml";
+}
+<div class="d-flex">
+    <!-- Sidebar -->
+    <nav class="sidebar bg-white vh-100 d-flex flex-column p-3">
+        <button class="btn btn-outline-primary mb-3 d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-expanded="false" aria-controls="sidebarMenu">
+            Menu
+        </button>
+        <div class="collapse d-md-block" id="sidebarMenu">
+            <ul class="nav flex-column">
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/DriverDashboard" ? "active" : "")" href="/DriverDashboard">
+                        <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/DriverSchedules" ? "active" : "")" href="/DriverSchedules">
+                        <i class="fas fa-calendar-alt me-2"></i> My Schedules
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/RouteDetails" ? "active" : "")" href="/RouteDetails">
+                        <i class="fas fa-map-marker-alt me-2"></i> Route Details
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/Notifications" ? "active" : "")" href="/Notifications">
+                        <i class="fas fa-bell me-2"></i> Notifications
+                    </a>
+                </li>
+            </ul>
+
+            <div class="mt-auto">
+                <a class="nav-link text-danger" href="/Logout">
+                    <i class="fas fa-sign-out-alt me-2"></i> Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content flex-grow-1 p-4">
+        <!-- Header -->
+        <h4 class="text-warning mb-4">Welcome, @Model.Drivername!</h4>
+
+        <!-- Dashboard Cards -->
+        <div class="row mb-4 justify-content-center">
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-calendar-alt fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">My Schedules</h5>
+                        <p class="card-text">View and manage your assigned schedules.</p>
+                        <a href="/DriverSchedules" class="fs-6" style="text-decoration: none;">
+                            View <i class="fa-solid fa-angles-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-map-marker-alt fa-3x text-success mb-3"></i>
+                        <h5 class="card-title">Route Details</h5>
+                        <p class="card-text">Access detailed route information for your trips.</p>
+                        <a href="/RouteDetails" class="fs-6" style="text-decoration: none;">
+                            View <i class="fa-solid fa-angles-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-bell fa-3x text-warning mb-3"></i>
+                        <h5 class="card-title">Notifications</h5>
+                        <p class="card-text">Check important updates and <br /> alerts!!!</p>
+                        <a href="/Notifications" class="fs-6" style="text-decoration: none;">
+                            View <i class="fa-solid fa-angles-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activities Table -->
+        <div class="recent-activities">
+            <h3 class="text-primary mb-3">Recent Activities</h3>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Activity</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Drove Route 101</td>
+                        <td>2024-11-25</td>
+                        <td class="text-success">Completed</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Checked schedule for Route 202</td>
+                        <td>2024-11-28</td>
+                        <td class="text-warning">Scheduled</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Viewed updated notifications</td>
+                        <td>2024-12-01</td>
+                        <td class="text-info">Reviewed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

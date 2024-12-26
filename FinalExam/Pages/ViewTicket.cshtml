@@ -1,0 +1,110 @@
+﻿@page
+@model FinalExam.Pages.ViewTicketModel
+@{
+    ViewData["Title"] = "View Ticket";
+    Layout = "~/Pages/Shared/_UserLayout.cshtml";
+}
+
+<div class="d-flex">
+    <!-- Sidebar -->
+    <nav class="sidebar bg-white vh-100 d-flex flex-column p-3">
+        <button class="btn btn-outline-primary mb-3 d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-expanded="false" aria-controls="sidebarMenu">
+            Menu
+        </button>
+        <div class="collapse d-md-block" id="sidebarMenu">
+            <ul class="nav flex-column">
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/ClientDashboard" ? "active" : "")" href="/ClientDashboard">
+                        <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/BookTickets" ? "active" : "")" href="/BookTickets">
+                        <i class="fas fa-ticket-alt me-2"></i> Book Tickets
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/ViewTicket" ? "active" : "")" href="/ViewTicket">
+                        <i class="fas fa-calendar-alt me-2"></i> View Ticket
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/Routes" ? "active" : "")" href="/Routes">
+                        <i class="fas fa-map-marker-alt me-2"></i> Routes
+                    </a>
+                </li>
+            </ul>
+
+            <div class="mt-auto">
+                <a class="nav-link text-danger" href="/Logout">
+                    <i class="fas fa-sign-out-alt me-2"></i> Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content d-flex justify-content-center align-items-center flex-grow-1 vh-100" style="padding-left: 20px;">
+        <div class="card shadow-sm" style="width: 30rem; max-height: 80vh; overflow-y: auto;">
+            <div class="card-body">
+                <h4 class="card-title text-center text-primary">Your Ticket</h4>
+                @if (Model.Ticket != null)
+                {
+                        <ul class="list-unstyled mb-4">
+                                <li><strong>Client Name:</strong> @Model.Username</li><br />
+                            <li><strong>Bus ID:</strong> @Model.Ticket.BusId</li><br />
+                            <li><strong>From:</strong> @Model.Ticket.RouteDeparture</li><br />
+                            <li><strong>To:</strong> @Model.Ticket.RouteDestination</li> <br />
+                            <li><strong>Date:</strong> @Model.Ticket.DepartureDate?.ToString("yyyy-MM-dd")</li><br />
+                            <li><strong>Price:</strong> @Model.Ticket.Price RWF</li> <br />
+                            <li><strong>Payment:</strong> @Model.Ticket.PaymentMethod</li> <br />
+                            <li>
+                                <strong>Status:</strong>
+                            @if (Model.Ticket.isCancel == true)
+                            {
+                                        <span class="text-danger">Canceled</span>
+                            }
+                            else
+                            {
+                                        <span class="text-success">Active</span>
+                            }
+                            </li>
+                        </ul>
+                        <div class="d-flex justify-content-between">
+                            <form method="post" asp-page-handler="Cancel" onsubmit="return confirm('Are you sure you want to cancel this ticket?');">
+                                <input type="hidden" name="Ticket.TicketId" value="@Model.Ticket.TicketId" />
+                                <button type="submit" class="btn btn-danger btn-sm">Cancel</button>
+                            </form>
+                            <button class="btn btn-primary btn-sm" onclick="window.print()">Print</button>
+                        </div>
+                }
+                else
+                {
+                                <p class="text-@Model.MessageColor text-center fs-6" id="messageLabel">@Model.Message</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    @@media print {
+        body {
+            visibility: hidden;
+        }
+        .card {
+            visibility: visible;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 80%;
+        }
+        .card .btn {
+            display: none;
+        }
+        .sidebar {
+            display: none;
+        }
+    }
+</style>

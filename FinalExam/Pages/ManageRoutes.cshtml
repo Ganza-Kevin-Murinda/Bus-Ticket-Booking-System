@@ -1,0 +1,263 @@
+﻿@page
+@model FinalExam.Pages.ManageRoutesModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+
+<div class="d-flex">
+    <!-- Sidebar -->
+    <nav class="sidebar bg-white vh-100 d-flex flex-column p-3">
+        <button class="btn btn-outline-warning text-secondary mb-3 d-md-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-expanded="false" aria-controls="sidebarMenu">
+            Admin
+        </button>
+        <div class="collapse d-md-block" id="sidebarMenu">
+            <ul class="nav flex-column">
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/AdminDashboard" ? "active" : "")"
+                        href="/AdminDashboard">
+                        <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/ManageBusses" ? "active" : "")"
+                        href="/ManageBusses">
+                        <i class="fa-solid fa-bus me-2"></i>Manage Busses
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/ManageClients" ? "active" : "")"
+                        href="/ManageClients">
+                        <i class="fas fa-users me-2"></i> Manage Clients
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/ManageDrivers" ? "active" : "")"
+                        href="/ManageDrivers">
+                        <i class="fa-solid fa-id-card me-2"></i> Manage Drivers
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/ManageRoutes" ? "active" : "")"
+                        href="/ManageRoutes">
+                        <i class="fa-solid fa-route me-2"></i> Manage Routes
+                    </a>
+                </li>
+                @* <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/ManageReports" ? "active" : "")" href="/ManageReports">
+                        <i class="fa-solid fa-file me-2"></i> Manage Reports
+                    </a>
+                </li> *@
+            </ul>
+            <div class="mt-auto">
+                <a class="nav-link text-danger" href="/Logout">
+                    <i class="fas fa-sign-out-alt me-2"></i> Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content flex-grow-1 p-4">
+        <h1 class="mb-4">Manage Routes</h1>
+
+        <!-- Trigger for Create New Route -->
+        <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#routeModal" onclick="clearForm()">Create New Route</button>
+
+        <!-- Trigger for print Route -->
+        <button class="btn btn-success" type="button" onclick="window.print()"><i class="fa-solid fa-file fa-lg"></i> Export</button>
+
+
+        <!-- Error Message -->
+        <div id="messageLabel" class="text-@Model.MessageColor text-center fs-6">@Model.Message</div>
+
+        <table class="table text-center mt-4">
+            <thead>
+                <tr>
+                    <th>Route ID</th>
+                    <th>Departure</th>
+                    <th>Destination</th>
+                    <th colspan=3>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var route in Model.Routes)
+                {
+                <tr>
+                    <td>@route.RouteId</td>
+                    <td>@route.FromDeparture</td>
+                    <td>@route.ToDestination</td>
+                    <td>
+                        
+                    </td>
+
+                    <td>
+                            <!-- Other Buttons -->
+                            <form method="post" asp-page-handler="ManageStops" style="display:inline;">
+                                <input type="hidden" name="routeId" value="@route.RouteId" />
+                                <button type="submit" class="btn btn-info btn-sm">
+                                            <i class="fa-solid fa-location-dot fa-lg"></i>
+                                </button>
+                            </form>
+
+                        <!-- Edit Button -->
+                        <button class="btn btn-warning btn-sm" type="button" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#routeModal"
+                            onclick="editRoute('@route.RouteId', '@route.FromDeparture', '@route.ToDestination')">
+                            <i class="fa-regular fa-pen-to-square fa-lg"></i>
+                        </button>
+
+                        <!-- Delete Button -->
+                        <form method="post" asp-page-handler="Delete" onsubmit="return confirmDelete();" style="display:inline;">
+                            <input type="hidden" name="routeId" value="@route.RouteId" />
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                <i class="fa-solid fa-trash fa-lg"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+
+<!-- Bootstrap Modal for Add/Edit Route -->
+<div class="modal fade" id="routeModal" tabindex="-1" aria-labelledby="routeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="routeModalLabel">Create/Edit Route</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" asp-page-handler="Save" id="routeForm">
+                    <div class="mb-3">
+                        <label for="routeId" class="form-label">Route ID</label>
+                        <input type="number" class="form-control" id="routeId" name="Route.RouteId" value="@Model.Route.RouteId" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fromDeparture" class="form-label">From Departure</label>
+                        <input type="text" class="form-control" id="fromDeparture" name="Route.FromDeparture" value="@Model.Route.FromDeparture" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="toDestination" class="form-label">To Destination</label>
+                        <input type="text" class="form-control" id="toDestination" name="Route.ToDestination" value="@Model.Route.ToDestination" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Route</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap Modal for Managing Stops -->
+<div class="modal fade @((Model.IsManageStops ? "show d-block" : ""))" id="stopsModal" tabindex="-1" aria-labelledby="stopsModalLabel" aria-hidden="true" style="background: rgba(0, 0, 0, 0.5);">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="stopsModalLabel">
+                    Manage Stops for Route: @Model.CurrentRoute.FromDeparture → @Model.CurrentRoute.ToDestination
+                </h5>
+                <form method="post" asp-page-handler="CloseModal">
+                    <button type="submit" class="btn-close" aria-label="Close"></button>
+                </form>
+            </div>
+            <div class="modal-body">
+                <!-- Add Stop Form -->
+                <form method="post" asp-page-handler="SaveStop">
+                    <input type="hidden" name="Stop.RouteId" value="@Model.CurrentRoute.RouteId" />
+                    <div class="mb-3">
+                        <label for="stopName" class="form-label">Stop Name</label>
+                        <input type="text" class="form-control" id="stopName" name="Stop.StopName" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Stop</button>
+                </form>
+                <hr>
+                <!-- List of Stops -->
+                <h5>Stops for this Route</h5>
+                <ul class="list-group">
+                    @if (Model.Stops != null && Model.Stops.Any())
+                    {
+                        @foreach (var stop in Model.Stops)
+                        {
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                @stop.StopName
+                                        <form method="post" asp-page-handler="DeleteStop" style="display:inline;">
+                                            <input type="hidden" name="stopId" value="@stop.StopId" />
+                                            <button type="submit" class="btn btn-sm btn-danger">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </li>
+                        }
+                    }
+                    else
+                    {
+                            <li class="list-group-item">No stops found for this route.</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    @@media print {
+        body {
+            visibility: hidden;
+        }
+        .table {
+            visibility: visible;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 80%;
+        }
+        .table th:last-child, 
+        .table td:last-child {
+            display: none; /* Optionally hide the entire last column for Actions */
+        }
+        .card .btn {
+            display: none;
+        }
+        .sidebar {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+         function clearForm() {
+            document.getElementById("routeModalLabel").innerText = "Create Route";
+            document.getElementById("routeId").value = 0;
+            document.getElementById("fromDeparture").value = "";
+            document.getElementById("toDestination").value = "";
+        }
+
+        function editRoute(routeId, fromDeparture, toDestination) {
+            document.getElementById("routeModalLabel").innerText = "Edit Route";
+            document.getElementById("routeId").value = routeId;
+            document.getElementById("fromDeparture").value = fromDeparture;
+            document.getElementById("toDestination").value = toDestination;
+        }
+
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete this route?");
+        }
+
+        // Expose functions to the global window object
+        window.clearForm = clearForm;
+        window.editRoute = editRoute;
+        window.confirmDelete = confirmDelete;
+    });
+</script>
+
+

@@ -1,0 +1,123 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = FinalExam
+build_property.RootNamespace = FinalExam
+build_property.ProjectDir = D:\STUDIES\Semester 7\.Net\Exercises\FinalExam\FinalExam\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\STUDIES\Semester 7\.Net\Exercises\FinalExam\FinalExam
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/AdminDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5EYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/BookTickets.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va1RpY2tldHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/ClientDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xpZW50RGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/DriverDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRHJpdmVyRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/DriverSchedules.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRHJpdmVyU2NoZWR1bGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRm9yZ290UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9nb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/ManageBusses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlQnVzc2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/ManageClients.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlQ2xpZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/ManageDrivers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlRHJpdmVycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/ManageRoutes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlUm91dGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/OTP.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT1RQLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzZXRQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/RouteDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm91dGVEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/Shared/_UserLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Vc2VyTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/Signin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnbmluLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/Signup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnbnVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/ViewTicket.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlld1RpY2tldC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDIES/Semester 7/.Net/Exercises/FinalExam/FinalExam/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-wtsj4d8a3m

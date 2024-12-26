@@ -1,0 +1,213 @@
+﻿@page
+@model FinalExam.Pages.ManageDriversModel
+@{
+	ViewData["Title"] = "Admin Dashboard";
+	Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+
+<div class="d-flex">
+    <!-- Sidebar -->
+    <nav class="sidebar bg-white vh-100 d-flex flex-column p-3">
+        <button class="btn btn-outline-warning text-secondary mb-3 d-md-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-expanded="false" aria-controls="sidebarMenu">
+            Admin
+        </button>
+        <div class="collapse d-md-block" id="sidebarMenu">
+            <ul class="nav flex-column">
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/AdminDashboard" ? "active" : "")"
+                        href="/AdminDashboard">
+                        <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/ManageBusses" ? "active" : "")"
+                        href="/ManageBusses">
+                        <i class="fa-solid fa-bus me-2"></i>Manage Busses
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/ManageClients" ? "active" : "")"
+                        href="/ManageClients">
+                        <i class="fas fa-users me-2"></i> Manage Clients
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/ManageDrivers" ? "active" : "")"
+                        href="/ManageDrivers">
+                        <i class="fa-solid fa-id-card me-2"></i> Manage Drivers
+                    </a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/ManageRoutes" ? "active" : "")"
+                        href="/ManageRoutes">
+                        <i class="fa-solid fa-route me-2"></i> Manage Routes
+                    </a>
+                </li>
+                @* <li class="nav-item mb-3">
+                    <a class="nav-link @(ViewContext.HttpContext.Request.Path == "/ManageReports" ? "active" : "")" href="/ManageReports">
+                        <i class="fa-solid fa-file me-2"></i> Manage Reports
+                    </a>
+                </li> *@
+            </ul>
+            <div class="mt-auto">
+                <a class="nav-link text-danger" href="/Logout">
+                    <i class="fas fa-sign-out-alt me-2"></i> Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content flex-grow-1 p-4">
+        <h1 class="mb-4">Manage Drivers</h1>
+
+        <!-- Trigger for Create New Route -->
+        <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#routeModal" onclick="clearForm()">Add New Driver</button>
+
+         <!-- Trigger for print Route -->
+        <button class="btn btn-success" type="button" onclick="window.print()"><i class="fa-solid fa-file fa-lg"></i> Export</button>
+
+
+        <!-- Error Message -->
+        <div id="messageLabel" class="text-@Model.MessageColor text-center fs-6">@Model.Message</div>
+
+        <table class="table text-center mt-4">
+            <thead>
+                <tr>
+                    <th>Driver ID</th>
+                    <th>Full Name</th>
+                    <th>Driver License</th>
+                    <th>Phone Number</th>
+                    <th colspan=2>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var driver in Model.Drivers)
+                {
+                    <tr>
+                                <td>@driver.DriverId</td>
+                                <td>@driver.FullName</td>
+                                <td>@driver.DriverLicense</td>
+                                <td>@driver.DriverPhone</td>
+                        <td>
+
+                        </td>
+
+                        <td>
+                            <!-- Delete Button -->
+                            <form method="post" asp-page-handler="Delete" onsubmit="return confirmDelete();" style="display:inline;">
+                                <input type="hidden" name="userId" value="@driver.UserId" />
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    <i class="fa-solid fa-trash fa-lg"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Bootstrap Modal for Add/Edit Driver -->
+<div class="modal fade" id="routeModal" tabindex="-1" aria-labelledby="routeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="routeModalLabel">Create/Edit Driver</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" asp-page-handler="Add" id="driverForm">
+                    <div class="mb-3">
+                        <label for="driverId" class="form-label">Driver ID</label>
+                        <input type="text" class="form-control" id="driverId" name="Driver.DriverId" value="@Model.Driver?.DriverId" readonly onclick="generateDriverId()">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" name="Driver.FullName" value="@Model.Driver?.FullName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="license" class="form-label">Driver License</label>
+                        <input type="text" class="form-control" id="license" name="Driver.DriverLicense" value="@Model.Driver?.DriverLicense" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="text" class="form-control" id="phone" name="Driver.DriverPhone" value="@Model.Driver?.DriverPhone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="User.Email" value="@Model.User?.Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="User.PasswordHash" value="@Model.User?.PasswordHash" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Driver</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    @@media print {
+        body {
+            visibility: hidden;
+        }
+        .table {
+            visibility: visible;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 80%;
+        }
+        .table th:last-child, 
+        .table td:last-child {
+            display: none; /* Optionally hide the entire last column for Actions */
+        }
+        .card .btn {
+            display: none;
+        }
+        .sidebar {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    function generateDriverId() {
+        const driverIdField = document.getElementById("driverId");
+        if (!driverIdField.value || driverIdField.value === "0") {
+            // Generate a unique ID starting with "DR-" followed by a random 6-digit number
+            const uniqueId = "DR-" + Math.random().toString(36).substring(2, 8).toUpperCase();
+            driverIdField.value = uniqueId;
+        }
+    }
+
+    function clearForm() {
+        document.getElementById("routeModalLabel").innerText = "Add Driver";
+        document.getElementById("driverId").value = "0";
+        document.getElementById("name").value = "";
+        document.getElementById("license").value = "";
+        document.getElementById("phone").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
+    }
+
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this Driver?");
+    }
+
+    // Expose functions to the global window object
+    window.generateDriverId = generateDriverId;
+    window.clearForm = clearForm;
+    window.confirmDelete = confirmDelete;
+});
+
+</script>
