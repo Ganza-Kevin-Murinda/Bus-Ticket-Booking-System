@@ -32,20 +32,20 @@ The Bus Ticket Booking System is a web-based application designed to provide cli
 
 ## Backend Technologies
 
-- ASP.NET Core (Razor Pages): Backend framework for creating dynamic web pages.
+- **ASP.NET Core (Razor Pages)**: Backend framework for creating dynamic web pages.
 
-- C#: Server-side programming language for handling logic, database connections, and user actions.
+- **C#**: Server-side programming language for handling logic, database connections, and user actions.
 
-- SQL Server: Database system for storing user data, tickets, routes, and schedules.
+- **SQL Server**: Database system for storing user data, tickets, routes, and schedules.
 
 ## Frontend Technologies
 
-- HTML5 & CSS3: For structuring and styling the user interface.
+- **HTML5 & CSS3**: For structuring and styling the user interface.
 
-- Bootstrap 5: Frontend framework for responsive and mobile-friendly design.
+- **Bootstrap 5**: Frontend framework for responsive and mobile-friendly design.
 
-- JavaScript: For client-side interactivity and form validation.
+- **JavaScript**: For client-side interactivity and form validation.
 
 ## Security
 
-- BCrypt.Net: Used for securely hashing user passwords.
+- **BCrypt.Net**: Used for securely hashing user passwords.
