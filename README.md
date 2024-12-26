@@ -4,48 +4,48 @@ The Bus Ticket Booking System is a web-based application designed to provide cli
 
 # Key Features
 
-# Client Dashboard
+## Client Dashboard
 
-Access key functionalities such as booking tickets, viewing schedules, and browsing available routes.
+- Access key functionalities such as booking tickets, viewing schedules, and browsing available routes.
 
-# Bus Ticket Booking Form
+## Bus Ticket Booking Form
 
-A minimalistic, responsive form for clients to book bus tickets.
+- A minimalistic, responsive form for clients to book bus tickets.
 
-Fields include departure location, destination, travel date, seat number, contact details, and email.
+- Fields include departure location, destination, travel date, seat number, contact details, and email.
 
-# Admin Management
+## Admin Management
 
-Admin panel to manage drivers, routes, and schedules effectively.
+- Admin panel to manage drivers, routes, and schedules effectively.
 
-# User Authentication
+## User Authentication
 
-Secure user registration and login system.
+- Secure user registration and login system.
 
-OTP verification for enhanced security.
+- OTP verification for enhanced security.
 
-Dynamic Sidebar Navigation
+## Dynamic Sidebar Navigation
 
-A responsive navigation menu allows seamless access to various pages of the application.
+- A responsive navigation menu allows seamless access to various pages of the application.
 
 # Technologies Used
 
-# Backend Technologies
+## Backend Technologies
 
-ASP.NET Core (Razor Pages): Backend framework for creating dynamic web pages.
+- ASP.NET Core (Razor Pages): Backend framework for creating dynamic web pages.
 
-C#: Server-side programming language for handling logic, database connections, and user actions.
+- C#: Server-side programming language for handling logic, database connections, and user actions.
 
-SQL Server: Database system for storing user data, tickets, routes, and schedules.
+- SQL Server: Database system for storing user data, tickets, routes, and schedules.
 
-# Frontend Technologies
+## Frontend Technologies
 
-HTML5 & CSS3: For structuring and styling the user interface.
+- HTML5 & CSS3: For structuring and styling the user interface.
 
-Bootstrap 5: Frontend framework for responsive and mobile-friendly design.
+- Bootstrap 5: Frontend framework for responsive and mobile-friendly design.
 
-JavaScript: For client-side interactivity and form validation.
+- JavaScript: For client-side interactivity and form validation.
 
-# Security
+## Security
 
-BCrypt.Net: Used for securely hashing user passwords.
+- BCrypt.Net: Used for securely hashing user passwords.
